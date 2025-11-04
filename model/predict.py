@@ -8,7 +8,7 @@ ANSWER_KEY = os.path.join(ASSETS, "answer_key.json")
 MBTI_WIKI = os.path.join(ASSETS, "mbti_wiki.json")
 PRED_KEY = os.path.join(ASSETS, "pred_key.json")
 QNA_PATH = os.path.join(ASSETS, "qna1.json")
-        
+
 MODEL_PATH = "model/multioutput_model.pkl"
 ENC_PATH = "model/label_encoders.pkl"
 
@@ -126,19 +126,19 @@ def predict_quiz(payload):
         row[question] = str(mapped if mapped is not None else ans or "-1")
 
     #FOR TESTING : QUESTIONS AND ANSWER MAPPING
-    print("\n===============================")
-    print("🧭 FLOW TYPE:", flow_type)
-    print("🔍 RAW QUESTION → ANSWER MAPPING (before encoding):")
-    for k, v in row.items():
-        print(f"{k:30} : {v}")
+    # print("\n===============================")
+    # print("🧭 FLOW TYPE:", flow_type)
+    # print("🔍 RAW QUESTION → ANSWER MAPPING (before encoding):")
+    # for k, v in row.items():
+    #     print(f"{k:30} : {v}")
 
-    print("-------------------------------")
-    print("🧾 ANSWER KEY MAPPING EXAMPLE (from answer_key.json):")
-    sample_items = list(mapping.items())[:10]
-    for ans_text, code in sample_items:
-        print(f"  '{ans_text}' → {code}")
+    # print("-------------------------------")
+    # print("🧾 ANSWER KEY MAPPING EXAMPLE (from answer_key.json):")
+    # sample_items = list(mapping.items())[:10]
+    # for ans_text, code in sample_items:
+    #     print(f"  '{ans_text}' → {code}")
 
-    print("===============================\n")
+    # print("===============================\n")
 
 
     # 3️⃣ ENCODING
