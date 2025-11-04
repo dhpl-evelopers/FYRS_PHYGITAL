@@ -2,6 +2,7 @@ import psycopg2, os
 from datetime import datetime
 import logging
 from typing import Optional, Dict, Any
+import json
 
 
 def _conn():
@@ -93,8 +94,9 @@ def insert_response(data):
         ))
 
 
+
 def fetch_latest_user_full(phone_number: str) -> Optional[Dict[str, Any]]:
-    """Fetch the latest submission (request + qna + response) for a user by phone number."""
+    """Fetch the latest submission (request + qna + response) for a user by phone number, including ring style image + link."""
     raw_number = phone_number.strip()
     normalized = raw_number.replace("+91", "").replace(" ", "")
 
@@ -155,6 +157,34 @@ def fetch_latest_user_full(phone_number: str) -> Optional[Dict[str, Any]]:
             resp_cols = [d.name for d in cur.description]
             resp_data = dict(zip(resp_cols, resp_row))
 
+        # 🧠 Add image and link from pred_key.json if ring style found
+        if resp_data and resp_data.get("collection_1"):
+            try:
+                assets_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "assets", "pred_key.json"))
+                with open(assets_path, "r", encoding="utf-8") as f:
+                    pred_data = json.load(f)
+
+                def find_style_info(style_name: str):
+                    for item in pred_data:
+                        if style_name.strip().lower() == item["Purchased Ring Style"].strip().lower():
+                            return {
+                                "name": item["Purchased Ring Style"],
+                                "image": item.get("img_link"),
+                                "link": item.get("link")
+                            }
+                    return None
+
+                style1 = find_style_info(resp_data["collection_1"]) if resp_data.get("collection_1") else None
+                style2 = find_style_info(resp_data["collection_2"]) if resp_data.get("collection_2") else None
+
+                if style1:
+                    resp_data["collection_1_details"] = style1
+                if style2:
+                    resp_data["collection_2_details"] = style2
+            except Exception as e:
+                print(f"⚠️ Could not load pred_key.json or match ring style: {e}")
+
+        # Final combined result
         return {
             "request": request_data,
             "qna": qna_data,

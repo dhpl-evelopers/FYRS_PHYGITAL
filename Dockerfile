@@ -32,4 +32,5 @@ COPY assets/ /home/site/wwwroot/assets/
 ENV PYTHONPATH=/app
 
 EXPOSE 8000
-CMD ["uvicorn", "api.main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["gunicorn", "-k", "uvicorn.workers.UvicornWorker", "--timeout", "120", "--bind", "0.0.0.0:8000", "api.main:app"]
+
