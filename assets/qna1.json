@@ -1,0 +1,1015 @@
+{
+  "questions": {
+    "question": "Who are you purchasing for?",
+    "id": "Q1",
+    "type": "single_select",
+    "options": [
+      {
+        "index": 1,
+        "value": "Self",
+        "flow": [
+          {
+            "question": "Gender",
+            "id": "Q2",
+            "type": "single_select",
+            "options": [
+              {
+                "index": 1,
+                "value": "Male"
+              },
+              {
+                "index": 2,
+                "value": "Female"
+              }
+            ]
+          },
+          {
+            "question": "Profession",
+            "id": "Q3",
+            "type": "single_select",
+            "options": [
+              {
+                "index": 1,
+                "value": "Knowledge Based: IT/ Marketing/ Architect/ Lawyer/ Teacher/ Accountant"
+              },
+              {
+                "index": 2,
+                "value": "Skill Based/Manual: Home-maker/ Baker/ Make-up Artist/ Graphics & VFX/ Photographer"
+              },
+              {
+                "index": 3,
+                "value": "Creative: Interior Designer/ Content Writer/ Fashion Designer/ UI-UX Designer"
+              },
+              {
+                "index": 4,
+                "value": "Service & Hospitality: Retail Sales Person/ Hotel Staff/ Flight Attendants/ Chefs/ Nurses"
+              },
+              {
+                "index": 5,
+                "value": "Entrepreneur & Executive: Founder/ CEO/ CXO/ Board Member"
+              },
+              {
+                "index": 6,
+                "value": "Business Owner: Proprietor/ Partner"
+              }
+            ]
+          },
+          {
+            "question": "Occasion",
+            "id": "Q4",
+            "type": "single_select",
+            "options": [
+              {
+                "index": 1,
+                "value": "Engagement"
+              },
+              {
+                "index": 2,
+                "value": "Anniversary"
+              },
+              {
+                "index": 3,
+                "value": "Birthday"
+              },
+              {
+                "index": 4,
+                "value": "Graduation"
+              },
+              {
+                "index": 5,
+                "value": "Festive/Function"
+              },
+              {
+                "index": 6,
+                "value": "Wedding"
+              },
+              {
+                "index": 7,
+                "value": "First Salary"
+              },
+              {
+                "index": 8,
+                "value": "Celebrating a win"
+              },
+              {
+                "index": 9,
+                "value": "To Be Mother"
+              },
+              {
+                "index": 10,
+                "value": "Astrology"
+              }
+            ]
+          },
+          {
+            "question": "Purpose",
+            "id": "Q5",
+            "type": "single_select",
+            "options": [
+              {
+                "index": 1,
+                "value": "Daily-wear"
+              },
+              {
+                "index": 2,
+                "value": "Office wear"
+              },
+              {
+                "index": 3,
+                "value": "Party-wear"
+              },
+              {
+                "index": 4,
+                "value": "Investment"
+              },
+              {
+                "index": 5,
+                "value": "Self-Gift"
+              }
+            ]
+          },
+          {
+            "question": "How would you describe your typical day?",
+            "id": "Q6",
+            "type": "single_select",
+            "options": [
+              {
+                "index": 1,
+                "value": "Calendarized Set Routine"
+              },
+              {
+                "index": 2,
+                "value": "Busy With a lot of Activities"
+              },
+              {
+                "index": 3,
+                "value": "Spontaneous & Free Spirited"
+              },
+              {
+                "index": 4,
+                "value": "Relaxed & Undisturbed"
+              },
+              {
+                "index": 5,
+                "value": "Hustle to build out of your passion"
+              }
+            ]
+          },
+          {
+            "question": "How do you prefer to spend your weekends?",
+            "id": "Q7",
+            "type": "single_select",
+            "options": [
+              {
+                "index": 1,
+                "value": "Relaxing at Home"
+              },
+              {
+                "index": 2,
+                "value": "Going out & socialising"
+              },
+              {
+                "index": 3,
+                "value": "Engaging in Hobbies"
+              }
+            ]
+          },
+          {
+            "question": "How do you typically dress for work?",
+            "id": "Q8",
+            "type": "single_select",
+            "options": [
+              {
+                "index": 1,
+                "value": "Business Formals: Tie-Suit/ Skirt Blazer"
+              },
+              {
+                "index": 2,
+                "value": "Business Casuals: Shirt-Pants/ Trouser"
+              },
+              {
+                "index": 3,
+                "value": "Everyday Wear: Jeans & T-Shirt"
+              },
+              {
+                "index": 4,
+                "value": "Comfort Clothing: Lounge Wear"
+              },
+              {
+                "index": 5,
+                "value": "Stylish & Chic: Designer Clothing"
+              }
+            ]
+          },
+          {
+            "question": "How do you typically dress for social events?",
+            "id": "Q9",
+            "type": "single_select",
+            "options": [
+              {
+                "index": 1,
+                "value": "Formals: Tie-Suit & Gown"
+              },
+              {
+                "index": 2,
+                "value": "Semi-Formals: Shirt-Pant & Dresses"
+              },
+              {
+                "index": 3,
+                "value": "Everyday Wear: Jeans & T-Shirt"
+              },
+              {
+                "index": 4,
+                "value": "Comfort Clothing: Lounge Wear"
+              },
+              {
+                "index": 5,
+                "value": "Stylish & Chic: Designer Clothing"
+              }
+            ]
+          },
+          {
+            "question": "On a trip, how do you like to organize things?",
+            "id": "Q10",
+            "type": "single_select",
+            "options": [
+              {
+                "index": 1,
+                "value": "You use an itinerary and adjust it"
+              },
+              {
+                "index": 2,
+                "value": "You plan everything yourself from scratch"
+              }
+            ]
+          },
+          {
+            "question": "You are waiting in a long line",
+            "id": "Q11",
+            "type": "single_select",
+            "options": [
+              {
+                "index": 1,
+                "value": "You will talk to people nearby"
+              },
+              {
+                "index": 2,
+                "value": "You prefer to be on your own"
+              }
+            ]
+          },
+          {
+            "question": "Whenever you see a piece of artwork",
+            "id": "Q12",
+            "type": "single_select",
+            "options": [
+              {
+                "index": 1,
+                "value": "You focus on the artistic details"
+              },
+              {
+                "index": 2,
+                "value": "You value the meaning of the art & origin"
+              }
+            ]
+          },
+          {
+            "question": "Your mother is not feeling well & you have an important meeting to attend",
+            "id": "Q13",
+            "type": "single_select",
+            "options": [
+              {
+                "index": 1,
+                "value": "You will cancel the meeting to care for your mother"
+              },
+              {
+                "index": 2,
+                "value": "You will arrange care for your mother & attend the meeting"
+              }
+            ]
+          },
+          {
+            "question": "Last minute plans",
+            "id": "Q14",
+            "type": "single_select",
+            "options": [
+              {
+                "index": 1,
+                "value": "You love them & adjust your day to accommodate the plan"
+              },
+              {
+                "index": 2,
+                "value": "You dislike last-minute plans & prefer planning ahead"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "value": "Others",
+        "flow": [
+          {
+            "question": "Select Gender of the person you are buying for",
+            "id": "Q2",
+            "type": "single_select",
+            "options": [
+              {
+                "index": 1,
+                "value": "Male",
+                "flow": [
+                  {
+                    "question": "Your relation to the person you are buying for",
+                    "id": "Q3",
+                    "type": "single_select",
+                    "options": [
+                      {
+                        "index": 1,
+                        "value": "Mother"
+                      },
+                      {
+                        "index": 2,
+                        "value": "Father"
+                      },
+                      {
+                        "index": 3,
+                        "value": "Wife"
+                      },
+                      {
+                        "index": 4,
+                        "value": "Husband"
+                      },
+                      {
+                        "index": 5,
+                        "value": "Girlfriend"
+                      },
+                      {
+                        "index": 6,
+                        "value": "Boyfriend"
+                      },
+                      {
+                        "index": 7,
+                        "value": "Sister"
+                      },
+                      {
+                        "index": 8,
+                        "value": "Brother"
+                      },
+                      {
+                        "index": 9,
+                        "value": "Mother in Law"
+                      },
+                      {
+                        "index": 10,
+                        "value": "Father in Law"
+                      },
+                      {
+                        "index": 11,
+                        "value": "Friend"
+                      },
+                      {
+                        "index": 12,
+                        "value": "Other"
+                      }
+                    ]
+                  },
+                  {
+                    "question": "His Profession",
+                    "id": "Q4",
+                    "type": "single_select",
+                    "options": [
+                      {
+                        "index": 1,
+                        "value": "Knowledge Based: IT/ Marketing/ Architect/ Lawyer/ Teacher/ Accountant"
+                      },
+                      {
+                        "index": 2,
+                        "value": "Skill Based/Manual: Home-maker/ Baker/ Make-up Artist/ Graphics & VFX/ Photographer"
+                      },
+                      {
+                        "index": 3,
+                        "value": "Creative: Interior Designer/ Content Writer/ Fashion Designer/ UI-UX Designer"
+                      },
+                      {
+                        "index": 4,
+                        "value": "Service & Hospitality: Retail Sales Person/ Hotel Staff/ Flight Attendants/ Chefs/ Nurses"
+                      },
+                      {
+                        "index": 5,
+                        "value": "Entrepreneur & Executive: Founder/ CEO/ CXO/ Board Member"
+                      },
+                      {
+                        "index": 6,
+                        "value": "Business Owner: Proprietor/ Partner"
+                      }
+                    ]
+                  },
+                  {
+                    "question": "The Occasion you are buying the ring for",
+                    "id": "Q5",
+                    "type": "single_select",
+                    "options": [
+                      {
+                        "index": 1,
+                        "value": "Engagement"
+                      },
+                      {
+                        "index": 2,
+                        "value": "Anniversary"
+                      },
+                      {
+                        "index": 3,
+                        "value": "Birthday"
+                      },
+                      {
+                        "index": 4,
+                        "value": "Graduation"
+                      },
+                      {
+                        "index": 5,
+                        "value": "Festive/Function"
+                      },
+                      {
+                        "index": 6,
+                        "value": "Wedding"
+                      },
+                      {
+                        "index": 7,
+                        "value": "First Salary"
+                      },
+                      {
+                        "index": 8,
+                        "value": "Celebrating a win"
+                      },
+                      {
+                        "index": 9,
+                        "value": "To Be Mother"
+                      },
+                      {
+                        "index": 10,
+                        "value": "Astrology"
+                      }
+                    ]
+                  },
+                  {
+                    "question": "The Purpose for which the ring is needed",
+                    "id": "Q6",
+                    "type": "single_select",
+                    "options": [
+                      {
+                        "index": 1,
+                        "value": "Daily-wear"
+                      },
+                      {
+                        "index": 2,
+                        "value": "Office wear"
+                      },
+                      {
+                        "index": 3,
+                        "value": "Party-wear"
+                      },
+                      {
+                        "index": 4,
+                        "value": "Investment"
+                      },
+                      {
+                        "index": 5,
+                        "value": "Self-Gift"
+                      }
+                    ]
+                  },
+                  {
+                    "question": "How would you describe his typical day?",
+                    "id": "Q7",
+                    "type": "single_select",
+                    "options": [
+                      {
+                        "index": 1,
+                        "value": "Calendarized Set Routine"
+                      },
+                      {
+                        "index": 2,
+                        "value": "Busy With a lot of Activities"
+                      },
+                      {
+                        "index": 3,
+                        "value": "Spontaneous & Free Spirited"
+                      },
+                      {
+                        "index": 4,
+                        "value": "Relaxed & Undisturbed"
+                      },
+                      {
+                        "index": 5,
+                        "value": "Hustle to build out of your passion"
+                      }
+                    ]
+                  },
+                  {
+                    "question": "How does he prefer to spend his weekends?",
+                    "id": "Q8",
+                    "type": "single_select",
+                    "options": [
+                      {
+                        "index": 1,
+                        "value": "Relaxing at Home"
+                      },
+                      {
+                        "index": 2,
+                        "value": "Going out & socialising"
+                      },
+                      {
+                        "index": 3,
+                        "value": "Engaging in Hobbies"
+                      }
+                    ]
+                  },
+                  {
+                    "question": "How does he typically dress for work?",
+                    "id": "Q9",
+                    "type": "single_select",
+                    "options": [
+                      {
+                        "index": 1,
+                        "value": "Business Formals: Tie-Suit/ Skirt Blazer"
+                      },
+                      {
+                        "index": 2,
+                        "value": "Business Casuals: Shirt-Pants/ Trouser"
+                      },
+                      {
+                        "index": 3,
+                        "value": "Everyday Wear: Jeans & T-Shirt"
+                      },
+                      {
+                        "index": 4,
+                        "value": "Comfort Clothing: Lounge Wear"
+                      },
+                      {
+                        "index": 5,
+                        "value": "Stylish & Chic: Designer Clothing"
+                      }
+                    ]
+                  },
+                  {
+                    "question": "How does he typically dress for social events?",
+                    "id": "Q10",
+                    "type": "single_select",
+                    "options": [
+                      {
+                        "index": 1,
+                        "value": "Formals: Tie-Suit & Gown"
+                      },
+                      {
+                        "index": 2,
+                        "value": "Semi-Formals: Shirt-Pant & Dresses"
+                      },
+                      {
+                        "index": 3,
+                        "value": "Everyday Wear: Jeans & T-Shirt"
+                      },
+                      {
+                        "index": 4,
+                        "value": "Comfort Clothing: Lounge Wear"
+                      },
+                      {
+                        "index": 5,
+                        "value": "Stylish & Chic: Designer Clothing"
+                      }
+                    ]
+                  },
+                  {
+                    "question": "On a trip, how does he like to organize things?",
+                    "id": "Q11",
+                    "type": "single_select",
+                    "options": [
+                      {
+                        "index": 1,
+                        "value": "He uses an itinerary and adjusts it"
+                      },
+                      {
+                        "index": 2,
+                        "value": "He plans everything himself from scratch"
+                      }
+                    ]
+                  },
+                  {
+                    "question": "He is waiting in a long line",
+                    "id": "Q12",
+                    "type": "single_select",
+                    "options": [
+                      {
+                        "index": 1,
+                        "value": "He will talk to people nearby"
+                      },
+                      {
+                        "index": 2,
+                        "value": "He will prefer to be by himself"
+                      }
+                    ]
+                  },
+                  {
+                    "question": "Whenever he sees a piece of artwork",
+                    "id": "Q13",
+                    "type": "single_select",
+                    "options": [
+                      {
+                        "index": 1,
+                        "value": "He will focus on the artistic details"
+                      },
+                      {
+                        "index": 2,
+                        "value": "He values the meaning of the art & origin"
+                      }
+                    ]
+                  },
+                  {
+                    "question": "He has an important meeting to attend but his mother is unwell",
+                    "id": "Q14",
+                    "type": "single_select",
+                    "options": [
+                      {
+                        "index": 1,
+                        "value": "He will cancel the meeting to care for his mother"
+                      },
+                      {
+                        "index": 2,
+                        "value": "He will arrange care for his mother & attend the meeting"
+                      }
+                    ]
+                  },
+                  {
+                    "question": "How does he react to last minute plans?",
+                    "id": "Q15",
+                    "type": "single_select",
+                    "options": [
+                      {
+                        "index": 1,
+                        "value": "He loves them & adjusts his day to accommodate the plan"
+                      },
+                      {
+                        "index": 2,
+                        "value": "He dislikes last-minute plans and prefers planning ahead"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "index": 2,
+                "value": "Female",
+                "flow": [
+                  {
+                    "question": "Your relation to the person you are buying for",
+                    "id": "Q3",
+                    "type": "single_select",
+                    "options": [
+                      {
+                        "index": 1,
+                        "value": "Mother"
+                      },
+                      {
+                        "index": 2,
+                        "value": "Father"
+                      },
+                      {
+                        "index": 3,
+                        "value": "Sister"
+                      },
+                      {
+                        "index": 4,
+                        "value": "Brother"
+                      },
+                      {
+                        "index": 5,
+                        "value": "Husband"
+                      },
+                      {
+                        "index": 6,
+                        "value": "Boyfriend"
+                      },
+                      {
+                        "index": 7,
+                        "value": "Mother in Law"
+                      },
+                      {
+                        "index": 8,
+                        "value": "Father in Law"
+                      },
+                      {
+                        "index": 9,
+                        "value": "Friend"
+                      },
+                      {
+                        "index": 10,
+                        "value": "Other"
+                      }
+                    ]
+                  },
+                  {
+                    "question": "Her Profession",
+                    "id": "Q4",
+                    "type": "single_select",
+                    "options": [
+                      {
+                        "index": 1,
+                        "value": "Knowledge Based: IT/ Marketing/ Architect/ Lawyer/ Teacher/ Accountant"
+                      },
+                      {
+                        "index": 2,
+                        "value": "Skill Based/Manual: Home-maker/ Baker/ Make-up Artist/ Graphics & VFX/ Photographer"
+                      },
+                      {
+                        "index": 3,
+                        "value": "Creative: Interior Designer/ Content Writer/ Fashion Designer/ UI-UX Designer"
+                      },
+                      {
+                        "index": 4,
+                        "value": "Service & Hospitality: Retail Sales Person/ Hotel Staff/ Flight Attendants/ Chefs/ Nurses"
+                      },
+                      {
+                        "index": 5,
+                        "value": "Entrepreneur & Executive: Founder/ CEO/ CXO/ Board Member"
+                      },
+                      {
+                        "index": 6,
+                        "value": "Business Owner: Proprietor/ Partner"
+                      }
+                    ]
+                  },
+                  {
+                    "question": "The Occasion you are buying the ring for",
+                    "id": "Q5",
+                    "type": "single_select",
+                    "options": [
+                      {
+                        "index": 1,
+                        "value": "Engagement"
+                      },
+                      {
+                        "index": 2,
+                        "value": "Anniversary"
+                      },
+                      {
+                        "index": 3,
+                        "value": "Birthday"
+                      },
+                      {
+                        "index": 4,
+                        "value": "Graduation"
+                      },
+                      {
+                        "index": 5,
+                        "value": "Festive/Function"
+                      },
+                      {
+                        "index": 6,
+                        "value": "Wedding"
+                      },
+                      {
+                        "index": 7,
+                        "value": "First Salary"
+                      },
+                      {
+                        "index": 8,
+                        "value": "Celebrating a win"
+                      },
+                      {
+                        "index": 9,
+                        "value": "To Be Mother"
+                      },
+                      {
+                        "index": 10,
+                        "value": "Astrology"
+                      }
+                    ]
+                  },
+                  {
+                    "question": "The Purpose for which the ring is needed",
+                    "id": "Q6",
+                    "type": "single_select",
+                    "options": [
+                      {
+                        "index": 1,
+                        "value": "Daily-wear"
+                      },
+                      {
+                        "index": 2,
+                        "value": "Office wear"
+                      },
+                      {
+                        "index": 3,
+                        "value": "Party-wear"
+                      },
+                      {
+                        "index": 4,
+                        "value": "Investment"
+                      },
+                      {
+                        "index": 5,
+                        "value": "Self-Gift"
+                      }
+                    ]
+                  },
+                  {
+                    "question": "How would you describe her typical day?",
+                    "id": "Q7",
+                    "type": "single_select",
+                    "options": [
+                      {
+                        "index": 1,
+                        "value": "Calendarized Set Routine"
+                      },
+                      {
+                        "index": 2,
+                        "value": "Busy With a lot of Activities"
+                      },
+                      {
+                        "index": 3,
+                        "value": "Spontaneous & Free Spirited"
+                      },
+                      {
+                        "index": 4,
+                        "value": "Relaxed & Undisturbed"
+                      },
+                      {
+                        "index": 5,
+                        "value": "Hustle to build out of your passion"
+                      }
+                    ]
+                  },
+                  {
+                    "question": "How does she prefer to spend her weekends?",
+                    "id": "Q8",
+                    "type": "single_select",
+                    "options": [
+                      {
+                        "index": 1,
+                        "value": "Relaxing at Home"
+                      },
+                      {
+                        "index": 2,
+                        "value": "Going out & socialising"
+                      },
+                      {
+                        "index": 3,
+                        "value": "Engaging in Hobbies"
+                      }
+                    ]
+                  },
+                  {
+                    "question": "How does she typically dress for work?",
+                    "id": "Q9",
+                    "type": "single_select",
+                    "options": [
+                      {
+                        "index": 1,
+                        "value": "Business Formals: Tie-Suit/ Skirt Blazer"
+                      },
+                      {
+                        "index": 2,
+                        "value": "Business Casuals: Shirt-Pants/ Trouser"
+                      },
+                      {
+                        "index": 3,
+                        "value": "Everyday Wear: Jeans & T-Shirt"
+                      },
+                      {
+                        "index": 4,
+                        "value": "Comfort Clothing: Lounge Wear"
+                      },
+                      {
+                        "index": 5,
+                        "value": "Stylish & Chic: Designer Clothing"
+                      }
+                    ]
+                  },
+                  {
+                    "question": "How does she typically dress for social events?",
+                    "id": "Q10",
+                    "type": "single_select",
+                    "options": [
+                      {
+                        "index": 1,
+                        "value": "Formals: Tie-Suit & Gown"
+                      },
+                      {
+                        "index": 2,
+                        "value": "Semi-Formals: Shirt-Pant & Dresses"
+                      },
+                      {
+                        "index": 3,
+                        "value": "Everyday Wear: Jeans & T-Shirt"
+                      },
+                      {
+                        "index": 4,
+                        "value": "Comfort Clothing: Lounge Wear"
+                      },
+                      {
+                        "index": 5,
+                        "value": "Stylish & Chic: Designer Clothing"
+                      }
+                    ]
+                  },
+                  {
+                    "question": "On a trip, how does she like to organize things?",
+                    "id": "Q11",
+                    "type": "single_select",
+                    "options": [
+                      {
+                        "index": 1,
+                        "value": "She uses an itinerary and adjusts it"
+                      },
+                      {
+                        "index": 2,
+                        "value": "She plans everything herself from scratch"
+                      }
+                    ]
+                  },
+                  {
+                    "question": "She is waiting in a long line",
+                    "id": "Q12",
+                    "type": "single_select",
+                    "options": [
+                      {
+                        "index": 1,
+                        "value": "She will talk to people nearby"
+                      },
+                      {
+                        "index": 2,
+                        "value": "She will prefer to be by herself"
+                      }
+                    ]
+                  },
+                  {
+                    "question": "Whenever she sees a piece of artwork",
+                    "id": "Q13",
+                    "type": "single_select",
+                    "options": [
+                      {
+                        "index": 1,
+                        "value": "She will focus on the artistic details"
+                      },
+                      {
+                        "index": 2,
+                        "value": "She values the meaning of the art & origin"
+                      }
+                    ]
+                  },
+                  {
+                    "question": "She has an important meeting to attend but her mother is unwell",
+                    "id": "Q14",
+                    "type": "single_select",
+                    "options": [
+                      {
+                        "index": 1,
+                        "value": "She will cancel the meeting to care for her mother"
+                      },
+                      {
+                        "index": 2,
+                        "value": "She will arrange care for her mother & attend the meeting"
+                      }
+                    ]
+                  },
+                  {
+                    "question": "How does she react to last minute plans?",
+                    "id": "Q15",
+                    "type": "single_select",
+                    "options": [
+                      {
+                        "index": 1,
+                        "value": "She loves them & adjusts her day to accommodate the plan"
+                      },
+                      {
+                        "index": 2,
+                        "value": "She dislikes last-minute plans and prefers planning ahead"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "meta": [
+    {
+      "question": "name",
+      "type": "input"
+    },
+    {
+      "question": "email",
+      "type": "input"
+    },
+    {
+      "question": "birth_date",
+      "type": "input"
+    },
+    {
+      "question": "phonenumber",
+      "type": "input"
+    }
+  ]
+}

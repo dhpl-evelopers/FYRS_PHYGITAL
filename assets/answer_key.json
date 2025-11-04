@@ -1,0 +1,346 @@
+[
+  {
+    "Answer": "Self",
+    "Option": 1
+  },
+  {
+    "Answer": "Others",
+    "Option": 2
+  },
+  {
+    "Answer": "Male",
+    "Option": 1
+  },
+  {
+    "Answer": "Female",
+    "Option": 2
+  },
+  {
+    "Answer": "Mother",
+    "Option": 1
+  },
+  {
+    "Answer": "Father",
+    "Option": 2
+  },
+  {
+    "Answer": "Wife",
+    "Option": 3
+  },
+  {
+    "Answer": "Husband",
+    "Option": 4
+  },
+  {
+    "Answer": "Girlfriend",
+    "Option": 5
+  },
+  {
+    "Answer": "Boyfriend",
+    "Option": 6
+  },
+  {
+    "Answer": "Sister",
+    "Option": 7
+  },
+  {
+    "Answer": "Brother",
+    "Option": 8
+  },
+  {
+    "Answer": "Mother in Law",
+    "Option": 9
+  },
+  {
+    "Answer": "Father in Law",
+    "Option": 10
+  },
+  {
+    "Answer": "Friend",
+    "Option": 11
+  },
+  {
+    "Answer": "Other",
+    "Option": 12
+  },
+  {
+    "Answer": "Knowledge Based: IT/ Marketing/ Architect/ Lawyer/ Teacher/ Accountant",
+    "Option": 1
+  },
+  {
+    "Answer": "Skill Based/Manual: Home-maker/ Baker/ Make-up Artist/ Graphics & VFX/ Photographer",
+    "Option": 2
+  },
+  {
+    "Answer": "Creative: Interior Designer/ Content Writer/ Fashion Designer/ UI-UX Designer",
+    "Option": 3
+  },
+  {
+    "Answer": "Service & Hospitality: Retail Sales Person/ Hotel Staff/ Flight Attendants/ Chefs/ Nurses",
+    "Option": 4
+  },
+  {
+    "Answer": "Service & Hospitality: Retail/ Hotel/ Nurse",
+    "Option": 4
+  },
+  {
+    "Answer": "Entrepreneur & Executive: Founder/ CEO/ CXO/ Board Member",
+    "Option": 5
+  },
+  {
+    "Answer": "Business Owner: Proprietor/ Partner",
+    "Option": 6
+  },
+  {
+    "Answer": "Engagement",
+    "Option": 1
+  },
+  {
+    "Answer": "Anniversary",
+    "Option": 2
+  },
+  {
+    "Answer": "Birthday",
+    "Option": 3
+  },
+  {
+    "Answer": "Graduation",
+    "Option": 4
+  },
+  {
+    "Answer": "Festive/Function",
+    "Option": 5
+  },
+  {
+    "Answer": "Wedding",
+    "Option": 6
+  },
+  {
+    "Answer": "First Salary",
+    "Option": 7
+  },
+  {
+    "Answer": "Celebrating a win",
+    "Option": 8
+  },
+  {
+    "Answer": "To Be Mother",
+    "Option": 9
+  },
+  {
+    "Answer": "Astrology",
+    "Option": 10
+  },
+  {
+    "Answer": "Daily-wear",
+    "Option": 1
+  },
+  {
+    "Answer": "Office wear",
+    "Option": 2
+  },
+  {
+    "Answer": "Party-wear",
+    "Option": 3
+  },
+  {
+    "Answer": "Investment",
+    "Option": 4
+  },
+  {
+    "Answer": "Self-Gift",
+    "Option": 5
+  },
+  {
+    "Answer": "Calendarized Set Routine",
+    "Option": 1
+  },
+  {
+    "Answer": "Busy With a lot of Activities",
+    "Option": 2
+  },
+  {
+    "Answer": "Spontaneous & Free Spirited",
+    "Option": 3
+  },
+  {
+    "Answer": "Relaxed & Undisturbed",
+    "Option": 4
+  },
+  {
+    "Answer": "Hustle to build out of your passion",
+    "Option": 5
+  },
+  {
+    "Answer": "Relaxing at Home",
+    "Option": 1
+  },
+  {
+    "Answer": "Going out & socialising",
+    "Option": 2
+  },
+  {
+    "Answer": "Engaging in Hobbies",
+    "Option": 3
+  },
+  {
+    "Answer": "Business Formals: Tie-Suit/ Skirt Blazer",
+    "Option": 1
+  },
+  {
+    "Answer": "Business Casuals: Shirt-Pants/ Trouser",
+    "Option": 2
+  },
+  {
+    "Answer": "Everyday Wear: Jeans & T-Shirt",
+    "Option": 3
+  },
+  {
+    "Answer": "Comfort Clothing: Lounge Wear",
+    "Option": 4
+  },
+  {
+    "Answer": "Stylish & Chic: Designer Clothing",
+    "Option": 5
+  },
+  {
+    "Answer": "Formals: Tie-Suit & Gown",
+    "Option": 1
+  },
+  {
+    "Answer": "Semi-Formals: Shirt-Pant & Dresses",
+    "Option": 2
+  },
+  {
+    "Answer": "Everyday Wear: Jeans & T-Shirt",
+    "Option": 3
+  },
+  {
+    "Answer": "Comfort Clothing: Lounge Wear",
+    "Option": 4
+  },
+  {
+    "Answer": "You use an itinerary and adjust it ",
+    "Option": 1
+  },
+  {
+    "Answer": "You plan everything yourself from scratch",
+    "Option": 2
+  },
+  {
+    "Answer": "You will talk to people nearby",
+    "Option": 1
+  },
+  {
+    "Answer": "You prefer to be on your own",
+    "Option": 2
+  },
+  {
+    "Answer": "You focus on the artistic details",
+    "Option": 1
+  },
+  {
+    "Answer": "You value the meaning of the art & origin",
+    "Option": 2
+  },
+  {
+    "Answer": "You will cancel the meeting to care for your mother",
+    "Option": 1
+  },
+  {
+    "Answer": "You will arrange care for your mother & attend the meeting",
+    "Option": 2
+  },
+  {
+    "Answer": "You love them & adjust your day to accommodate the plan",
+    "Option": 1
+  },
+  {
+    "Answer": "You dislike last-minute plans & prefer planning ahead",
+    "Option": 2
+  },
+  {
+    "Answer": "He uses an itinerary and adjusts it",
+    "Option": 1
+  },
+  {
+    "Answer": "He plans everything himself from scratch",
+    "Option": 2
+  },
+  {
+    "Answer": "He will talk to people nearby",
+    "Option": 1
+  },
+  {
+    "Answer": "He will prefer to be by himself",
+    "Option": 2
+  },
+  {
+    "Answer": "He will focus on the artistic details",
+    "Option": 1
+  },
+  {
+    "Answer": "He values the meaning of the art & origin",
+    "Option": 2
+  },
+  {
+    "Answer": "He will cancel the meeting to care for his mother",
+    "Option": 1
+  },
+  {
+    "Answer": "He will arrange care for his mother & attend the meeting",
+    "Option": 2
+  },
+  {
+    "Answer": "He loves them & adjusts his day to accommodate the plan",
+    "Option": 1
+  },
+  {
+    "Answer": "He dislikes last-minute plans and prefers planning ahead",
+    "Option": 2
+  },
+  {
+    "Answer": "She uses an itinerary and adjusts it",
+    "Option": 1
+  },
+  {
+    "Answer": "She plans everything herself from scratch",
+    "Option": 2
+  },
+  {
+    "Answer": "She will talk to people nearby",
+    "Option": 1
+  },
+  {
+    "Answer": "She will prefer to be by herself",
+    "Option": 2
+  },
+  {
+    "Answer": "She will focus on the artistic details",
+    "Option": 1
+  },
+  {
+    "Answer": "She values the meaning of the art & origin",
+    "Option": 2
+  },
+  {
+    "Answer": "She will cancel the meeting to care for her mother",
+    "Option": 1
+  },
+  {
+    "Answer": "She will arrange care for her mother & attend the meeting",
+    "Option": 2
+  },
+  {
+    "Answer": "She loves them & adjusts her day to accommodate the plan",
+    "Option": 1
+  },
+  {
+    "Answer": "She loves them & adjusts her day",
+    "Option": 1
+  },
+  {
+    "Answer": "She dislikes last-minute plans and prefers planning ahead",
+    "Option": 2
+  }
+]

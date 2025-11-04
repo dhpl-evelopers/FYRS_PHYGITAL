@@ -1,0 +1,66 @@
+[
+  {
+    "mbti": "ISTJ",
+    "key_val": 1
+  },
+  {
+    "mbti": "ISFJ",
+    "key_val": 2
+  },
+  {
+    "mbti": "INFJ",
+    "key_val": 3
+  },
+  {
+    "mbti": "INTJ",
+    "key_val": 4
+  },
+  {
+    "mbti": "ISTP",
+    "key_val": 5
+  },
+  {
+    "mbti": "ISFP",
+    "key_val": 6
+  },
+  {
+    "mbti": "INFP",
+    "key_val": 7
+  },
+  {
+    "mbti": "INTP",
+    "key_val": 8
+  },
+  {
+    "mbti": "ESTP",
+    "key_val": 9
+  },
+  {
+    "mbti": "ESFP",
+    "key_val": 10
+  },
+  {
+    "mbti": "ENFP",
+    "key_val": 11
+  },
+  {
+    "mbti": "ENTP",
+    "key_val": 12
+  },
+  {
+    "mbti": "ESTJ",
+    "key_val": 13
+  },
+  {
+    "mbti": "ESFJ",
+    "key_val": 14
+  },
+  {
+    "mbti": "ENFJ",
+    "key_val": 15
+  },
+  {
+    "mbti": "ENTJ",
+    "key_val": 16
+  }
+]

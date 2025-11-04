@@ -1,0 +1,35 @@
+{
+    "Self": {
+        "Q1": "Who are you purchasing for?",
+        "Q2": "Gender",
+        "Q3": "Profession",
+        "Q4": "Occasion",
+        "Q5": "Purpose",
+        "Q6": "Typical Day",
+        "Q7": "Weekend Preference",
+        "Q8": "Work Dress",
+        "Q9": "Social Dress",
+        "Q10": "Trip Preference",
+        "Q11": "Waiting Line",
+        "Q12": "Artwork Response",
+        "Q13": "Mother Response",
+        "Q14": "Last Minute Plans"
+    },
+    "Others": {
+        "Q1": "Who are you purchasing for?",
+        "Q2": "Gender",
+        "Q3": "Relation",
+        "Q4": "Profession",
+        "Q5": "Occasion",
+        "Q6": "Purpose",
+        "Q7": "Typical Day",
+        "Q8": "Weekend Preference",
+        "Q9": "Work Dress",
+        "Q10": "Social Dress",
+        "Q11": "Trip Preference",
+        "Q12": "Waiting Line",
+        "Q13": "Artwork Response",
+        "Q14": "Mother Response",
+        "Q15": "Last Minute Plans"
+    }
+}
