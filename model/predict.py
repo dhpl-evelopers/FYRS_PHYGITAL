@@ -1,6 +1,7 @@
 import os, pandas as pd, joblib, json, logging,random
 from datetime import datetime
 from database.db import insert_request, insert_qna, insert_response
+import numpy as np
 
 # -------------------- ASSETS --------------------
 ASSETS = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "assets"))
@@ -126,11 +127,11 @@ def predict_quiz(payload):
         row[question] = str(mapped if mapped is not None else ans or "-1")
 
     #FOR TESTING : QUESTIONS AND ANSWER MAPPING
-    # print("\n===============================")
-    # print("🧭 FLOW TYPE:", flow_type)
-    # print("🔍 RAW QUESTION → ANSWER MAPPING (before encoding):")
-    # for k, v in row.items():
-    #     print(f"{k:30} : {v}")
+    print("\n===============================")
+    print("🧭 FLOW TYPE:", flow_type)
+    print("🔍 RAW QUESTION → ANSWER MAPPING (before encoding):")
+    for k, v in row.items():
+        print(f"{k:30} : {v}")
 
     # print("-------------------------------")
     # print("🧾 ANSWER KEY MAPPING EXAMPLE (from answer_key.json):")
@@ -147,40 +148,43 @@ def predict_quiz(payload):
         le = enc[c]
         X[c] = X[c].apply(lambda v: le.transform([v])[0] if v in le.classes_ else le.transform(["-1"])[0])
 
+
     # 4️⃣ PREDICTION
+    pred, probas = None, None  # <-- initialize early to avoid "possibly unbound" warning
+
     try:
         pred = model.predict(X)[0]
         probas = model.predict_proba(X)
+
+        # --- Top-2 ring styles (using model.classes_[1] directly) ---
+        if probas is not None:
+            ring_probs = probas[1][0] if len(np.shape(probas[1])) > 1 else probas[1]
+
+            sorted_idx = np.argsort(ring_probs)[::-1]
+            top2_idx = list(dict.fromkeys(sorted_idx[:2]))
+            if len(top2_idx) < 2:
+                top2_idx.append(top2_idx[0])
+
+            ring_classes = model.classes_[1]  # numeric 1–12 labels
+            predicted_ring_key = int(ring_classes[top2_idx[0]])
+            second_key = int(ring_classes[top2_idx[1]]) if len(top2_idx) > 1 else predicted_ring_key
+        else:
+            predicted_ring_key = int(pred[1])
+            second_key = predicted_ring_key
+
     except Exception as e:
         logging.error(f"❌ Prediction failed, using random fallback: {e}")
         pred = [random.randint(1, 16), random.randint(1, 12)]
-        probas = None
+        predicted_ring_key = random.randint(1, 12)
+        second_key = random.randint(1, 12)
 
-    # --- Top-2 ring styles ---
-    if isinstance(probas, list) and len(probas) > 1:
-        ring_probs = probas[1][0]
-        sorted_idx = ring_probs.argsort()[::-1]
-
-        # Pick top 2 *unique* indices
-        top2_idx = []
-        for idx in sorted_idx:
-            if idx not in top2_idx:
-                top2_idx.append(idx)
-            if len(top2_idx) == 2:
+    # 🚫 Ensure two different ring keys
+    if second_key == predicted_ring_key:
+        all_keys = list(model.classes_[1])
+        for alt_key in all_keys:
+            if alt_key != predicted_ring_key:
+                second_key = int(alt_key)
                 break
-    else:
-        top2_idx = [int(pred[1]), int(pred[1])]
-
-    ring_label_encoder = enc.get("purchased_ring_style_key")
-    if ring_label_encoder:
-        top2_ring_keys = ring_label_encoder.inverse_transform(top2_idx)
-    else:
-        top2_ring_keys = [int(pred[1]), int(pred[1])]
-
-    # Ensure two numeric ring keys are always defined
-    predicted_ring_key = int(top2_ring_keys[0])
-    second_key = int(top2_ring_keys[1] if len(top2_ring_keys) > 1 else top2_ring_keys[0])
-
 
 
     # 5️⃣ DECODE MBTI USING WIKI FILE (NUMERIC → TEXT)
@@ -207,36 +211,31 @@ def predict_quiz(payload):
         pred_map = json.load(f)
     key_to_style = {int(item["Key_val"]): item for item in pred_map}
 
-    ring1 = key_to_style.get(predicted_ring_key, {
-        "Purchased Ring Style": "Unknown Style", "img_link": None, "link": None
-    })
-    ring2 = key_to_style.get(second_key, {
-        "Purchased Ring Style": "Unknown Style", "img_link": None, "link": None
-    })
+    # If prediction key missing, fallback to random valid key
+    def safe_get_ring(key):
+        if key in key_to_style:
+            return key_to_style[key]
+        else:
+            random_key = random.choice(list(key_to_style.keys()))
+            logging.warning(f"⚠️ Ring key {key} not found. Using random fallback {random_key}.")
+            return key_to_style[random_key]
 
-    # 🚫 Prevent duplicate ring styles
-    if ring2["Purchased Ring Style"] == ring1["Purchased Ring Style"]:
-        for k, v in key_to_style.items():
-            if v["Purchased Ring Style"] != ring1["Purchased Ring Style"]:
-                ring2 = v
-                break
+    # Get ring1 and ring2 safely
+    ring1 = safe_get_ring(predicted_ring_key)
+    ring2 = safe_get_ring(second_key)
 
-    # 7️⃣ TRIP + BYOR LOGIC
-    trip_question_texts = {
-        "on a trip, how do you like to organize things?",
-        "on a trip, how does she like to organize things?",
-        "on a trip, how does he like to organize things?",
-        "trip",
-        "trip preference"
-    }
+
+    # 7️⃣ TRIP + BYOR LOGIC (key-based + mapping aware)
+    trip_qid = "Q10" if flow_type == "Self" else "Q11"
+    trip_question = qmap.get(trip_qid, "Trip Preference").lower()
 
     trip_scratch = False
     for a in answers:
+        qid = a.get("id", "").strip().upper()
         qtext = (a.get("text") or "").strip().lower()
-        if any(q in qtext for q in trip_question_texts):
+        if qid == trip_qid or trip_question in qtext:
             sel = a.get("selectedOption", {})
             val = str(sel.get("value", "")).strip().lower()
-            # Broaden the matching to all natural variants
             if any(keyword in val for keyword in [
                 "from scratch", "plan everything", "plans everything", "organize myself",
                 "he plans everything", "you plan everything"
@@ -244,11 +243,16 @@ def predict_quiz(payload):
                 trip_scratch = True
             break
 
-    byor_tokens = {"solitaire", "halo", "cluster", "wedding set"}
-    def is_byor_style(name): return any(tok in (name or "").lower() for tok in byor_tokens)
-    ring1_name, ring2_name = ring1["Purchased Ring Style"].lower(), ring2["Purchased Ring Style"].lower()
+    # 2️⃣ Define numeric keys for BYOR ring styles (from pred_key.json)
+    BYOR_KEYS = {2, 7, 9, 11}  # SOLITAIRE=2, CLUSTER=7, HALO=9, WEDDING SET=11
 
-    section = "BYOR" if trip_scratch and (is_byor_style(ring1_name) and is_byor_style(ring2_name)) else "STANDARD"
+    # 3️⃣ Check if both rings are BYOR type using numeric keys
+    is_ring1_byor = predicted_ring_key in BYOR_KEYS
+    is_ring2_byor = second_key in BYOR_KEYS
+
+    # 4️⃣ Final logic for BYOR / STANDARD section
+    section = "BYOR" if trip_scratch and is_ring1_byor and is_ring2_byor else "STANDARD"
+
 
     # 8️⃣ FINAL RESPONSE
     response = {
