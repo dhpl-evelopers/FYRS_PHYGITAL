@@ -1,0 +1,27 @@
+FROM python:3.11-slim
+
+# Set working directory
+WORKDIR /app
+
+# Prevent Python from writing .pyc files and force unbuffered output
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1
+
+# ---- System dependencies for psycopg2 and other packages ----
+RUN apt-get update && apt-get install -y build-essential libpq-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+# ---- Install Python dependencies ----
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# ---- Copy the full application ----
+COPY . .
+
+# ✅ Copy Excel & asset files to the same directory your ML model expects
+# (This path matches what MLService uses, e.g., /home/site/wwwroot/assets)
+COPY assets/ /home/site/wwwroot/assets/
+
+# ---- Port + Gunicorn command ----
+ENV PORT=8000
+CMD ["gunicorn", "-k", "uvicorn.workers.UvicornWorker", "--timeout", "120", "--bind", "0.0.0.0:8000", "main:app"]
