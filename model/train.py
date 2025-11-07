@@ -214,8 +214,20 @@ def train_model():
     # print(df_preview.head(20))
 
 
+    # Handle missing or unseen classes (<1 sample)
+    class_counts = pd.Series(y[:, 1]).value_counts()
+    all_style_ids = [int(item["Key_val"]) for item in pred_map]
+    missing_classes = [cls for cls in all_style_ids if cls not in class_counts.index]
+
+    if len(missing_classes) > 0:
+        print(f"⚠️ Found ring styles with <1 sample (missing in DB): {missing_classes}")
+        y[:, 1] = np.where(np.isin(y[:, 1], missing_classes), -1, y[:, 1])
+
+    y = np.nan_to_num(y, nan=-1)
+
+    # Split (no stratify)
     X_train, X_val, y_train, y_val = train_test_split(
-        X, y, test_size=0.2, stratify=y[:, 1], random_state=42
+        X, y, test_size=0.2, random_state=42
     )
 
     model = RandomForestClassifier(
