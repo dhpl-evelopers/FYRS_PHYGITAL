@@ -192,3 +192,70 @@ def fetch_latest_user_full(phone_number: str) -> Optional[Dict[str, Any]]:
             "visit_count": visit_count,
             "last_visit_time": request_data["timestamp"]
         }
+
+def fetch_random_purchased_response() -> Optional[Dict[str, Any]]:
+    """
+    Fetch a random response where status='PURCHASED'.
+    Excludes the purchased_ring_style field in the final output.
+    """
+    try:
+        with _conn() as conn, conn.cursor() as cur:
+            # 1️⃣ Get total count of purchased records
+            cur.execute("SELECT COUNT(*) FROM public.responses WHERE status = 'PURCHASED';")
+            total = cur.fetchone()[0]
+            if total == 0:
+                return None
+
+            # 2️⃣ Choose a random offset
+            import random
+            rand_offset = random.randint(0, total - 1)
+
+            # 3️⃣ Fetch one random purchased record
+            cur.execute("""
+                SELECT response_id, mbti_personality_type, mbti_personality_code,
+                       description, similar_personality_1, similar_personality_2,
+                       collection_1, collection_2
+                FROM public.responses
+                WHERE status = 'PURCHASED'
+                OFFSET %s LIMIT 1;
+            """, (rand_offset,))
+
+            row = cur.fetchone()
+            if not row:
+                return None
+
+            # 4️⃣ Convert to dictionary
+            colnames = [desc.name for desc in cur.description]
+            data = dict(zip(colnames, row))
+
+            # 5️⃣ Enrich with ring style images/links from pred_key.json
+            assets_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "assets", "pred_key.json"))
+            with open(assets_path, "r", encoding="utf-8") as f:
+                pred_data = json.load(f)
+
+            def find_style_info(style_name: str):
+                for item in pred_data:
+                    if style_name.strip().lower() == item["Purchased Ring Style"].strip().lower():
+                        return {
+                            "name": item["Purchased Ring Style"],
+                            "image": item.get("img_link"),
+                            "link": item.get("link")
+                        }
+                return None
+
+            style1 = find_style_info(data["collection_1"]) if data.get("collection_1") else None
+            style2 = find_style_info(data["collection_2"]) if data.get("collection_2") else None
+
+            if style1:
+                data["collection_1_details"] = style1
+            if style2:
+                data["collection_2_details"] = style2
+
+            # 6️⃣ Remove purchased_ring_style if present
+            data.pop("purchased_ring_style", None)
+
+            return data
+
+    except Exception as e:
+        logging.error(f"❌ Error fetching random purchased response: {e}")
+        return None

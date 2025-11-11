@@ -3,8 +3,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import uvicorn, uuid, datetime, json, joblib, os, logging
 from model.predict import predict_quiz
-from model.train import train_model, extract_all_question_ids  
-from database.db import fetch_latest_user_full
+from model.train import train_model, extract_all_question_ids , evaluate_model 
+from database.db import fetch_latest_user_full,fetch_random_purchased_response
 from fastapi.responses import JSONResponse
 
 app = FastAPI()
@@ -87,6 +87,25 @@ async def get_latest_user_full(phone_number: str):
     if not data:
         return JSONResponse({"error": "No record found for this user"}, status_code=404)
     return JSONResponse(data)
+
+@app.get("/evaluation")
+async def get_accuracy_score():
+    try:
+         return{ "status": "Success","response": evaluate_model()}
+    except Exception as e:
+        logging.exception("Evaluation failed")
+        return {"status" : "error", "message": str(e)}
+    
+@app.get("/getRandomResponse")
+async def get_random_response():
+    try:
+
+        return{"status": "Success", "response":fetch_random_purchased_response()}
+    except Exception as e:
+        logging.exception("getRandomResponse failed")
+        return {"status" : "error", "message": str(e)}
+
+
 
 
 
