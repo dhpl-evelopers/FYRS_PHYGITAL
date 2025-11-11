@@ -1,22 +1,8 @@
-import os, pandas as pd, joblib, json
+import os, pandas as pd, joblib, json, numpy as np
 from sqlalchemy import create_engine, text
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.preprocessing import LabelEncoder
-import numpy as np
-
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, classification_report
-from sqlalchemy import create_engine, text
-
-from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, classification_report
-import numpy as np
-
-from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, classification_report
-import numpy as np, json, os, pandas as pd
-from sqlalchemy import create_engine, text
-
-from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, classification_report
-import numpy as np, json, os, pandas as pd
-from sqlalchemy import create_engine, text
 
 pd.set_option('future.no_silent_downcasting', True)
 
@@ -332,7 +318,7 @@ def evaluate_model():
         y_mbti = df["mbti_personality_code"].fillna(-1).astype(str)
         # Convert textual MBTI (like ENFP) to key numbers for numeric comparison
         y_mbti = y_mbti.map({v: k for k, v in mbti_map.items()}).fillna(-1).astype(int)
-        print("⚠️ Using numeric MBTI codes (no encoder found).")
+        # print("⚠️ Using numeric MBTI codes (no encoder found).")
 
     y_ring = df["purchased_ring_style"].astype(str).str.strip().str.upper().map(style_to_key).fillna(-1).astype(int)
 
